@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -63,9 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
-=======
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
->>>>>>> aba7e5b59c356f7aa4fd48f2a507a89f82af39ec
     );
   }
 }
