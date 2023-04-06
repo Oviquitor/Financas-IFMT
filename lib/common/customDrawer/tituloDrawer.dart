@@ -1,4 +1,4 @@
-import 'package:farm/models/gerenciamentoPagina.dart';
+import 'package:fin/models/gerenciamentoPagina.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

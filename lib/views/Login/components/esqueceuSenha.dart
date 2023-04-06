@@ -1,7 +1,5 @@
+import 'package:fin/components/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:project/components/custom_text.dart';
 
 class RedefinirSenha extends StatefulWidget {
   const RedefinirSenha({super.key});

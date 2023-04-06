@@ -1,7 +1,7 @@
-import 'package:farm/common/customDrawer/headerDrawer.dart';
-import 'package:farm/models/gerenciamentoPagina.dart';
-import 'package:farm/views/configPage/config.dart';
-import 'package:farm/views/menuPage/menu.dart';
+import 'package:fin/models/gerenciamentoPagina.dart';
+import 'package:fin/views/Bancos/Banco.dart';
+import 'package:fin/views/Categorias/Categoria.dart';
+import 'package:fin/views/Despesas/Despesa.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,8 +23,9 @@ class _MenuDrawerState extends State<MenuDrawer> {
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          Menu(),
-          Config(),
+          Categoria(),
+          Despesas(),
+          Banco(),
         ],
       ),
     );

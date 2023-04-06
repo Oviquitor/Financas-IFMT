@@ -1,5 +1,5 @@
-import 'package:farm/common/customDrawer/headerDrawer.dart';
-import 'package:farm/common/customDrawer/tituloDrawer.dart';
+import 'package:fin/common/customDrawer/headerDrawer.dart';
+import 'package:fin/common/customDrawer/tituloDrawer.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
