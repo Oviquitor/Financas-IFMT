@@ -1,6 +1,5 @@
 import 'package:fin/components/custom_text.dart';
 import 'package:fin/views/Login/inicio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class NovoUsuario extends StatefulWidget {
@@ -15,7 +14,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   final _confirmarSenhaController = TextEditingController();
-  final firebaseAuth = FirebaseAuth.instance;
+  //final firebaseAuth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,6 @@
 import 'package:fin/components/custom_text.dart';
 import 'package:fin/views/Login/components/esqueceuSenha.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> formkey = GlobalKey();
-  final firebaseAuth = FirebaseAuth.instance;
+  //final firebaseAuth = FirebaseAuth.instance;
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   bool? _isChecked = false;
