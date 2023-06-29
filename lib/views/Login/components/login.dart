@@ -1,4 +1,6 @@
 import 'package:fin/components/custom_text.dart';
+import 'package:fin/views/Drawer/Drawer.dart';
+import 'package:fin/views/Inicio/telaPrincipal.dart';
 import 'package:fin/views/Login/components/esqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
@@ -162,8 +164,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       onPressed: () {
-
-                        
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => MenuDrawer()),
+                        );
 
                         // if (formkey.currentState!.validate()) {
                         //   context.read<GerenciamentoUsuario>().signIn(
