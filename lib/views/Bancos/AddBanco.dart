@@ -1,10 +1,11 @@
+import 'package:fin/common/customDrawer/customDrawer.dart';
 import 'package:flutter/material.dart';
 
 class CardsInformacoes {
-   String banco;
-   String agencia;
-   String contaCorrente;
-   double saldo;
+  String banco;
+  String agencia;
+  String contaCorrente;
+  double saldo;
 
   CardsInformacoes({
     required this.banco,
@@ -38,7 +39,7 @@ class _telaBancoState extends State<telaBanco> {
     String agencia = '';
     String contaCorrente = '';
     double saldo = 0.0;
-    
+
     showDialog(
       context: context,
       builder: (context) {
@@ -223,6 +224,7 @@ class _telaBancoState extends State<telaBanco> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -333,61 +335,60 @@ class _telaBancoState extends State<telaBanco> {
   }
 
   void _editCard(int index) {
-  TextEditingController bancoController = TextEditingController();
-  TextEditingController agenciaController = TextEditingController();
-  TextEditingController contaController = TextEditingController();
+    TextEditingController bancoController = TextEditingController();
+    TextEditingController agenciaController = TextEditingController();
+    TextEditingController contaController = TextEditingController();
 
-  bancoController.text = _cards[index].banco;
-  agenciaController.text = _cards[index].agencia;
-  contaController.text = _cards[index].contaCorrente;
+    bancoController.text = _cards[index].banco;
+    agenciaController.text = _cards[index].agencia;
+    contaController.text = _cards[index].contaCorrente;
 
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('Editar Cartão'),
-        content: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('Banco'),
-            TextField(
-              controller: bancoController,
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Editar Cartão'),
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Banco'),
+              TextField(
+                controller: bancoController,
+              ),
+              SizedBox(height: 8),
+              Text('Agência'),
+              TextField(
+                controller: agenciaController,
+              ),
+              SizedBox(height: 8),
+              Text('Conta Corrente'),
+              TextField(
+                controller: contaController,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              child: Text('Cancelar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
-            SizedBox(height: 8),
-            Text('Agência'),
-            TextField(
-              controller: agenciaController,
-            ),
-            SizedBox(height: 8),
-            Text('Conta Corrente'),
-            TextField(
-              controller: contaController,
+            TextButton(
+              child: Text('Salvar'),
+              onPressed: () {
+                setState(() {
+                  _cards[index].banco = bancoController.text;
+                  _cards[index].agencia = agenciaController.text;
+                  _cards[index].contaCorrente = contaController.text;
+                });
+                Navigator.of(context).pop();
+              },
             ),
           ],
-        ),
-        actions: [
-          TextButton(
-            child: Text('Cancelar'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          TextButton(
-            child: Text('Salvar'),
-            onPressed: () {
-              setState(() {
-                _cards[index].banco = bancoController.text;
-                _cards[index].agencia = agenciaController.text;
-                _cards[index].contaCorrente = contaController.text;
-              });
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
-
+        );
+      },
+    );
+  }
 }

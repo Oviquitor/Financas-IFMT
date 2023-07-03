@@ -32,32 +32,12 @@ class CustomDrawer extends StatelessWidget {
               ),
               TituloDrawer(
                 iconData: Icons.settings,
-                titulo: 'Configuração',
+                titulo: 'Banco',
                 pagina: 1,
               ),
               TituloDrawer(
                 iconData: Icons.menu_book,
-                titulo: 'Manual de Uso',
-                pagina: 2,
-              ),
-              TituloDrawer(
-                iconData: Icons.menu_book,
-                titulo: 'Dicas de Medição',
-                pagina: 2,
-              ),
-              TituloDrawer(
-                iconData: Icons.book,
-                titulo: 'Config. de Relatórios',
-                pagina: 2,
-              ),
-              TituloDrawer(
-                iconData: Icons.menu_book,
-                titulo: 'Manual de Uso',
-                pagina: 2,
-              ),
-              TituloDrawer(
-                iconData: Icons.menu_book,
-                titulo: 'Termos de Uso',
+                titulo: 'Categoria',
                 pagina: 2,
               ),
             ],

@@ -3,6 +3,7 @@ import 'package:fin/views/Bancos/AddBanco.dart';
 import 'package:fin/views/Categorias/Categoria.dart';
 import 'package:fin/views/Despesas/Despesa.dart';
 import 'package:fin/views/Inicio/telaPrincipal.dart';
+import 'package:fin/views/Menu/Menu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,8 +25,9 @@ class _MenuDrawerState extends State<MenuDrawer> {
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          telaPrincipal(),
+          Home(),
           telaBanco(),
+          MyWidget(),
         ],
       ),
     );

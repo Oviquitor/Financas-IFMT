@@ -16,7 +16,7 @@ class HeaderDrawer extends StatelessWidget {
           Row(
             children: const [
               Text(
-                'Arremesso',
+                'Finanças',
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
             ],
@@ -25,39 +25,7 @@ class HeaderDrawer extends StatelessWidget {
             padding: const EdgeInsets.only(left: 80),
             child: Row(
               children: const [
-                Align(
-                  child: Text.rich(
-                    TextSpan(
-                      style: TextStyle(
-                        fontSize: 17,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: 'by ',
-                          style: TextStyle(
-                            fontFamily: 'Coolvetica',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Agri',
-                          style: TextStyle(
-                            fontFamily: 'Coolvetica',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Decode',
-                          style: TextStyle(
-                            fontFamily: 'Coolvetica',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 22, 71, 61),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                Align(),
               ],
             ),
           ),

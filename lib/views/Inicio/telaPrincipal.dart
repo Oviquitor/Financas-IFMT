@@ -1,3 +1,4 @@
+import 'package:fin/common/customDrawer/customDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:fin/views/Inicio/tabs.dart';
 import 'package:fin/views/Inicio/circularButtons.dart';
@@ -18,6 +19,13 @@ class _telaPrincipalState extends State<telaPrincipal> {
     final availableHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      drawer: CustomDrawer(),
+      appBar: AppBar(
+        bottomOpacity: 0,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       body: Column(
         children: [
           Container(
@@ -70,7 +78,7 @@ class _telaPrincipalState extends State<telaPrincipal> {
             ),
           ),
           Container(
-            height: availableHeight * (0.3895),
+            height: availableHeight * (0.2),
             padding: EdgeInsets.all(10),
             alignment: Alignment.topCenter,
             child: TabBarDemo(),
