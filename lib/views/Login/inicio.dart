@@ -60,7 +60,6 @@ class _InicioState extends State<Inicio> {
                 const Padding(
                   padding: EdgeInsets.all(5),
                 ),
-                //Criar Conta
                 SizedBox(
                   height: 60,
                   child: OutlinedButton(
@@ -89,7 +88,6 @@ class _InicioState extends State<Inicio> {
                     },
                   ),
                 ),
-                //Botoes redondo
                 Padding(
                   padding: const EdgeInsets.only(top: 35),
                   child: Row(

@@ -1,5 +1,5 @@
 import 'package:fin/components/custom_text.dart';
-import 'package:fin/views/Login/inicio.dart';
+import 'package:fin/views/Login/components/login.dart';
 import 'package:flutter/material.dart';
 
 class NovoUsuario extends StatefulWidget {
@@ -14,7 +14,6 @@ class _NovoUsuarioState extends State<NovoUsuario> {
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   final _confirmarSenhaController = TextEditingController();
-  //final firebaseAuth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -92,21 +91,9 @@ class _NovoUsuarioState extends State<NovoUsuario> {
 
                     const Padding(padding: EdgeInsets.only(top: 60)),
                     SizedBox(
-                      height: 50,
+                      height: 60,
                       child: ElevatedButton(
-                        onPressed: () {
-                          // if (_emailController.text.isEmpty ||
-                          //     _senhaController.text.isEmpty ||
-                          //     _confirmarSenhaController.text.isEmpty) {
-                          //   ScaffoldMessenger.of(context).showSnackBar(
-                          //     const SnackBar(
-                          //       content: Text('Preencha todos os campos'),
-                          //     ),
-                          //   );
-                          // } else {
-                          //   cadastrar();
-                          // }
-                        },
+                        onPressed: () {},
                         child: Text(
                           'Criar usuario',
                           style: TextStyle(fontSize: 18),
@@ -137,7 +124,12 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()),
+                              );
+                            },
                             child: const Text(
                               'Entrar',
                               style: TextStyle(
@@ -159,47 +151,4 @@ class _NovoUsuarioState extends State<NovoUsuario> {
       ),
     );
   }
-
-  // cadastrar() async {
-  //   try {
-  //     UserCredential cadastrarCredencial =
-  //         await firebaseAuth.createUserWithEmailAndPassword(
-  //       email: _emailController.text,
-  //       password: _senhaController.text,
-  //     );
-  //     if (cadastrarCredencial != null &&
-  //         _senhaController.text == _confirmarSenhaController.text) {
-  //       cadastrarCredencial.user!.updateDisplayName(_nomeController.text);
-  //       Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: (context) => Inicio(),
-  //         ),
-  //       );
-  //     } else {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(
-  //           content: Text('Senhas nao confere'),
-  //         ),
-  //       );
-  //     }
-  //     ;
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'week-password') {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(
-  //           content: Text('Informe no minimo 6 caracteres'),
-  //           backgroundColor: Colors.red,
-  //         ),
-  //       );
-  //     } else if (e.code == 'email-already-in-use') {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(
-  //           content: Text('Email ja foi usado'),
-  //           backgroundColor: Colors.red,
-  //         ),
-  //       );
-  //     }
-  //   }
-  // }
 }
