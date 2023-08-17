@@ -35,9 +35,8 @@ class _InicioState extends State<Inicio> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                //Entrar
                 SizedBox(
-                  height: 50,
+                  height: 60,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
@@ -63,7 +62,7 @@ class _InicioState extends State<Inicio> {
                 ),
                 //Criar Conta
                 SizedBox(
-                  height: 45,
+                  height: 60,
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(
@@ -90,87 +89,89 @@ class _InicioState extends State<Inicio> {
                     },
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 150)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Termos de uso',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
+                //Botoes redondo
+                Padding(
+                  padding: const EdgeInsets.only(top: 35),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: Colors.black.withAlpha(90),
+                          thickness: 2,
                         ),
                       ),
-                    ),
-                    Text('|'),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Privacidade',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: Text('Ou'),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.black.withAlpha(90),
+                          thickness: 2,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                // //Botoes redondo
-                // Padding(
-                //   padding: const EdgeInsets.only(top: 15),
-                //   child: Row(
-                //     children: [
-                //       Expanded(
-                //         child: Divider(
-                //           color: Colors.black.withAlpha(90),
-                //           thickness: 2,
-                //         ),
-                //       ),
-                //       const Padding(
-                //         padding: EdgeInsets.symmetric(horizontal: 15),
-                //         child: Text('Ou'),
-                //       ),
-                //       Expanded(
-                //         child: Divider(
-                //           color: Colors.black.withAlpha(90),
-                //           thickness: 2,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                // Container(
-                //   padding: EdgeInsets.only(top: 30),
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.center,
-                //     children: [
-                //       IconButton(
-                //         onPressed: () {},
-                //         icon: Image.asset("assets/images/Google.png"),
-                //       ),
-                //       Padding(padding: EdgeInsets.only(left: 50)),
-                //       IconButton(
-                //         onPressed: () {},
-                //         icon: Image.asset("assets/images/Facebook.png"),
-                //       ),
-                //       Padding(padding: EdgeInsets.only(left: 50)),
-                //       IconButton(
-                //         onPressed: () {},
-                //         icon: Image.asset("assets/images/Linkedin.png"),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                Container(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset("assets/images/Google.png"),
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 50)),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset("assets/images/Facebook.png"),
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 50)),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset("assets/images/Linkedin.png"),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Termos de uso',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text('|'),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Privacidade',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
