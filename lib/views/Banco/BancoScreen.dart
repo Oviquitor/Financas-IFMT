@@ -10,7 +10,7 @@ class BancoScreen extends StatefulWidget {
   State<BancoScreen> createState() => _BancoScreenState();
 }
 
-List<Banco>? listaBancos;
+List<Banco> listaBancos = [];
 
 void getbancosFromApi() async {
   listaBancos = await getBanco(ip: AppRoutes.Ipservidor);

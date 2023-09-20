@@ -15,6 +15,7 @@ Future<List<Banco>> getBanco({required String ip}) async {
   http.Response response = await http.get(Uri.parse(stringRota));
 
   if (response.statusCode == 200) {
+    print(response.body);
     return compute(analisarBanco, response.body);
   } else {
     throw Exception();
