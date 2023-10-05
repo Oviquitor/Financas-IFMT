@@ -206,6 +206,7 @@ class _BancoScreenState extends State<BancoScreen> {
                                 );
 
                                 showDialog(
+                                  barrierDismissible: false,
                                   context: context,
                                   builder: (ctx) => AlertDialog(
                                     title: Text('Mensagem Api'),
