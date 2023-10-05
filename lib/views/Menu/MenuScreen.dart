@@ -13,7 +13,7 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 60, 39, 176),
+        backgroundColor: Color.fromARGB(255, 27, 75, 72),
         title: Text(
           'Menu',
           style: TextStyle(color: Colors.white),
@@ -21,7 +21,7 @@ class _MenuScreenState extends State<MenuScreen> {
         centerTitle: true,
       ),
       body: Container(
-        color: const Color.fromARGB(255, 255, 255, 255),
+        color: Color.fromARGB(75, 27, 75, 72),
         child: Align(
           child: GestureDetector(
             onTap: () {
