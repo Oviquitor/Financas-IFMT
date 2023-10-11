@@ -1,4 +1,5 @@
 import 'package:financass/views/Banco/BancoScreen.dart';
+import 'package:financass/views/Tipopagas/TipopagasScreen.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -22,17 +23,33 @@ class _MenuScreenState extends State<MenuScreen> {
       ),
       body: Container(
         color: Color.fromARGB(75, 27, 75, 72),
-        child: Align(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => BancoScreen()),
-              );
-            },
-            child: Text('Lista de Bancos',
-                style: TextStyle(
-                    fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
-          ),
+        child: Column(
+          children: [
+            Align(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => BancoScreen()),
+                  );
+                },
+                child: Text('Lista de Bancos',
+                    style: TextStyle(
+                        fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
+              ),
+            ),
+            Align(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => TipopagasScreen()),
+                  );
+                },
+                child: Text('Lista de Tipo de Pagamento',
+                    style: TextStyle(
+                        fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
+              ),
+            ),
+          ],
         ),
       ),
     );
