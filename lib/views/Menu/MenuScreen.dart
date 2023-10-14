@@ -1,5 +1,5 @@
-import 'package:financass/views/Banco/BancoScreen.dart';
-import 'package:financass/views/Tipopagas/TipopagasScreen.dart';
+import 'package:financass/views/BancoPage/BancoScreen.dart';
+import 'package:financass/views/TipopagoPage/TipopagasScreen.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {

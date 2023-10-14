@@ -1,4 +1,4 @@
-import 'package:financass/views/TelaInicial/InicialScreen.dart';
+import 'package:financass/views/InicialPage/InicialScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
