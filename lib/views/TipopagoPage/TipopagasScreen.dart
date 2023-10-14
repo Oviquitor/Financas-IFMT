@@ -26,22 +26,11 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
   }
 
   void getTipopagasFromAPI() async {
-    try {
-      await getTipopaga(ip: AppRoutes.Ipservidor).then((value) {
-        setState(() {
-          listaTipopagas = value;
-        });
-      });
-      _isLoading = false;
-    } catch (e) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Atenção!'),
-          content: Text('${e}'),
-        ),
-      );
-    }
+    var value = await getTipopaga(ip: AppRoutes.Ipservidor);
+    setState(() {
+      listaTipopagas = value;
+    });
+    _isLoading = false;
   }
 
   var appbar = AppBar(
@@ -96,8 +85,96 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
                       title: Text(
                         "Adicionar Tipo de Pagamento",
                         textAlign: TextAlign.center,
-                        
                       ),
+                      content: SingleChildScrollView(
+                        child: Container(
+                          height: maxBodySize * 0.19,
+                          width: double.maxFinite,
+                          child: Form(
+                            key: _formTipopaga,
+                            child: Column(
+                              children: [
+                                TextFormField(
+                                  validator: (tipo) {
+                                    String tipoDigitado = tipo ?? '';
+                                    if (tipoDigitado.isEmpty) {
+                                      return 'Esse campo não pode estar vazio.';
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  controller: _tipoController,
+                                  decoration: InputDecoration(
+                                    labelText: 'Tipo',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () async {
+                            if (_formTipopaga.currentState!.validate()) {
+                              try {
+                                String msgRetorno = await salvaTipopaga(
+                                  ip: AppRoutes.Ipservidor,
+                                  tipo: _tipoController.text,
+                                );
+
+                                showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Mensagem API'),
+                                    content: Text('${msgRetorno}'),
+                                    actions: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          if (msgRetorno ==
+                                              'Tipo de Pagamento cadastrado com sucesso') {
+                                            setState(() {
+                                              _tipoController.text = '';
+                                              _isLoading = true;
+                                              getTipopagasFromAPI();
+                                            });
+                                            Navigator.of(context).pop();
+                                          }
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('Ok'),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              } catch (e) {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Erro!'),
+                                    content: Text('${e}'),
+                                    actions: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }
+                            }
+                          },
+                          child: Text("Salvar"),
+                        )
+                      ],
                     );
                   },
                 );
