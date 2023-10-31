@@ -1,4 +1,5 @@
 import 'package:financass/views/BancoPage/BancoScreen.dart';
+import 'package:financass/views/CategoriasPage/CategoriaScreen.dart';
 import 'package:financass/views/TipopagoPage/TipopagasScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +46,18 @@ class _MenuScreenState extends State<MenuScreen> {
                   );
                 },
                 child: Text('Lista de Tipo de Pagamento',
+                    style: TextStyle(
+                        fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
+              ),
+            ),
+            Align(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CategoriaScreen()),
+                  );
+                },
+                child: Text('Lista de Categorias',
                     style: TextStyle(
                         fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
               ),
