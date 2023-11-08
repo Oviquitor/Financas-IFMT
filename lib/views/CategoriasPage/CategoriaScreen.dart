@@ -1,49 +1,48 @@
 import 'package:financass/config/Rotas.dart';
-import 'package:financass/controllers/TipopagasController.dart';
-import 'package:financass/models/TipopagasModel.dart';
-import 'package:flutter/foundation.dart';
+import 'package:financass/controllers/CategoriaController.dart';
+import 'package:financass/models/CategoriaModel.dart';
 import 'package:flutter/material.dart';
 
-class TipopagasScreen extends StatefulWidget {
-  const TipopagasScreen({super.key});
+class CategoriaScreen extends StatefulWidget {
+  const CategoriaScreen({super.key});
 
   @override
-  State<TipopagasScreen> createState() => _TipopagasScreenState();
+  State<CategoriaScreen> createState() => _CategoriaScreenState();
 }
 
-class _TipopagasScreenState extends State<TipopagasScreen> {
-  List<Tipopagas> listaTipopagas = [];
+class _CategoriaScreenState extends State<CategoriaScreen> {
+  List<Categoria> listaCategoria = [];
   bool _isLoading = false;
 
-  final _tipoController = TextEditingController();
-  final GlobalKey<FormState> _formTipopaga = GlobalKey<FormState>();
+  final _categoriaController = TextEditingController();
+  final GlobalKey<FormState> _formCategoria = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
     _isLoading = true;
-    getTipopagasFromAPI();
-  }
-
-  void getTipopagasFromAPI() async {
-    var value = await getTipopaga(ip: AppRoutes.Ipservidor);
-    setState(() {
-      listaTipopagas = value;
-    });
-    _isLoading = false;
+    getCategoriaFromApi();
   }
 
   var appbar = AppBar(
     backgroundColor: Color.fromARGB(255, 27, 75, 72),
     title: Text(
-      "Tipo de Pagamento",
+      "Categorias",
       style: TextStyle(color: Colors.white),
     ),
   );
 
+  void getCategoriaFromApi() async {
+    var value = await getCategoria(ip: AppRoutes.Ipservidor);
+    setState(() {
+      listaCategoria = value;
+    });
+    _isLoading = false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    var maxBodySize = (MediaQuery.of(context).size.height -
+    var maxSizeUtil = (MediaQuery.of(context).size.height -
         appbar.preferredSize.height -
         MediaQuery.of(context).padding.top);
 
@@ -59,12 +58,12 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
                       minHeight: 5,
                     )
                   : Container(
-                      height: maxBodySize * 0.85,
+                      height: maxSizeUtil * 0.85,
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
-                        itemCount: listaTipopagas.length,
+                        itemCount: listaCategoria.length,
                         itemBuilder: ((context, index) => ListTile(
-                              title: Text('${listaTipopagas[index].tipo}'),
+                              title: Text('${listaCategoria[index].categoria}'),
                             )),
                       ),
                     ),
@@ -83,15 +82,15 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
                         horizontal: 10,
                       ),
                       title: Text(
-                        "Adicionar Tipo de Pagamento",
+                        "Adicionar Categoria",
                         textAlign: TextAlign.center,
                       ),
                       content: SingleChildScrollView(
                         child: Container(
-                          height: maxBodySize * 0.19,
+                          height: maxSizeUtil * 0.19,
                           width: double.maxFinite,
                           child: Form(
-                            key: _formTipopaga,
+                            key: _formCategoria,
                             child: Column(
                               children: [
                                 TextFormField(
@@ -103,7 +102,7 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
                                       return null;
                                     }
                                   },
-                                  controller: _tipoController,
+                                  controller: _categoriaController,
                                   decoration: InputDecoration(
                                     labelText: 'Tipo',
                                     border: OutlineInputBorder(
@@ -121,11 +120,11 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
                       actions: [
                         ElevatedButton(
                           onPressed: () async {
-                            if (_formTipopaga.currentState!.validate()) {
+                            if (_formCategoria.currentState!.validate()) {
                               try {
-                                String msgRetorno = await salvaTipopaga(
+                                String msgRetorno = await salvarCategoria(
                                   ip: AppRoutes.Ipservidor,
-                                  tipo: _tipoController.text,
+                                  categoria: _categoriaController.text,
                                 );
 
                                 showDialog(
@@ -138,11 +137,11 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
                                       ElevatedButton(
                                         onPressed: () {
                                           if (msgRetorno ==
-                                              'Tipo de Pagamento cadastrado com sucesso') {
+                                              'Categoria cadastrada com sucesso') {
                                             setState(() {
-                                              _tipoController.text = '';
+                                              _categoriaController.text = '';
                                               _isLoading = true;
-                                              getTipopagasFromAPI();
+                                              getCategoriaFromApi();
                                             });
                                             Navigator.of(context).pop();
                                           }

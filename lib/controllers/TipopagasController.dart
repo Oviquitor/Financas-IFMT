@@ -21,7 +21,10 @@ Future<List<Tipopagas>> getTipopaga({required String ip}) async {
   }
 }
 
-Future<String> salvaTipopaga({required String ip, required String tipo}) async {
+Future<String> salvaTipopaga({
+  required String ip,
+  required String tipo,
+}) async {
   String rota = '${ip}cadastrar-tipopaga';
 
   http.Response response = await http.post(
