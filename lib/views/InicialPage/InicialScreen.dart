@@ -7,46 +7,46 @@ class InicialScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color.fromARGB(255, 206, 252, 205),
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                child: Align(
-                  child: Text(
-                    'Finanças',
-                    style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
-                  ),
+      backgroundColor: Color.fromARGB(255, 206, 252, 205),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              child: Align(
+                child: Text(
+                  'Finanças',
+                  style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
                 ),
               ),
+              color: Color.fromARGB(255, 206, 252, 205),
             ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 60,
-                    width: 250,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black, elevation: 5),
-                      child: Text(
-                        'Entrar',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => MenuScreen()),
-                        );
-                      },
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 60,
+                  width: 250,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                        elevation: 5),
+                    child: Text(
+                      'Entrar',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => MenuScreen()),
+                      );
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -15,32 +15,29 @@ Future<List<Banco>> getBanco({required String ip}) async {
   http.Response response = await http.get(Uri.parse(stringRota));
 
   if (response.statusCode == 200) {
-    // print(response.body);
     return compute(analisarBanco, response.body);
   } else {
     throw Exception();
   }
 }
 
-Future<String> salvarBanco({
-  required String ip,
-  required String banco,
-  required String conta,
-  required String agencia,
-  required double saldo,
-}) async {
+Future<String> salvarBanco(
+    {required String ip,
+    required String banco,
+    required String conta,
+    required String agencia,
+    required double saldo}) async {
   String stringRota = '${ip}cadastrar-banco';
-
   http.Response response = await http.post(
     Uri.parse(stringRota),
     headers: {
       'Content-Type': 'application/json',
     },
     body: jsonEncode({
-      "banco": banco,
-      "conta": conta,
-      "agencia": agencia,
-      "saldo": saldo,
+      'banco': banco,
+      'agencia': agencia,
+      'conta': conta,
+      'saldo': saldo,
     }),
   );
 

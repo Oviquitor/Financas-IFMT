@@ -1,6 +1,7 @@
 import 'package:financass/views/BancoPage/BancoScreen.dart';
-import 'package:financass/views/CategoriasPage/CategoriaScreen.dart';
-import 'package:financass/views/TipopagoPage/TipopagasScreen.dart';
+import 'package:financass/views/CategoriaPage/CategoriasScreen.dart';
+import 'package:financass/views/TipopagasPage/TipopagasScreen.dart';
+import 'package:financass/views/CartaoPage/CartaoScreen.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 27, 75, 72),
+        backgroundColor: const Color.fromARGB(255, 27, 75, 72),
         title: Text(
           'Menu',
           style: TextStyle(color: Colors.white),
@@ -23,9 +24,33 @@ class _MenuScreenState extends State<MenuScreen> {
         centerTitle: true,
       ),
       body: Container(
-        color: Color.fromARGB(75, 27, 75, 72),
+        color: const Color.fromARGB(75, 27, 75, 72),
         child: Column(
           children: [
+            Align(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => TipopagasScreen()),
+                  );
+                },
+                child: Text('Lista de Tipos Pagamentos',
+                    style: TextStyle(
+                        fontSize: 20, color: Color.fromARGB(255, 0, 0, 0))),
+              ),
+            ),
+            Align(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CategoriasScreen()),
+                  );
+                },
+                child: Text('Lista de Categorias',
+                    style: TextStyle(
+                        fontSize: 20, color: Color.fromARGB(255, 0, 0, 0))),
+              ),
+            ),
             Align(
               child: GestureDetector(
                 onTap: () {
@@ -35,31 +60,19 @@ class _MenuScreenState extends State<MenuScreen> {
                 },
                 child: Text('Lista de Bancos',
                     style: TextStyle(
-                        fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
+                        fontSize: 20, color: Color.fromARGB(255, 0, 0, 0))),
               ),
             ),
             Align(
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => TipopagasScreen()),
+                    MaterialPageRoute(builder: (context) => CartaoScreen()),
                   );
                 },
-                child: Text('Lista de Tipo de Pagamento',
+                child: Text('Lista de Cartões',
                     style: TextStyle(
-                        fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
-              ),
-            ),
-            Align(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => CategoriaScreen()),
-                  );
-                },
-                child: Text('Lista de Categorias',
-                    style: TextStyle(
-                        fontSize: 20, color: Color.fromARGB(255, 0, 68, 255))),
+                        fontSize: 20, color: Color.fromARGB(255, 0, 0, 0))),
               ),
             ),
           ],
