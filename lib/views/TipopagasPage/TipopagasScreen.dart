@@ -1,3 +1,4 @@
+import 'package:financass/common/customDrawer.dart';
 import 'package:financass/config/Rotas.dart';
 import 'package:financass/controllers/TipopagasController.dart';
 import 'package:financass/models/TipopagasModel.dart';
@@ -48,6 +49,7 @@ class _TipopagasScreenState extends State<TipopagasScreen> {
         MediaQuery.of(context).padding.top);
 
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: appBar,
       body: Container(
         color: Color.fromARGB(75, 27, 75, 72),

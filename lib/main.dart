@@ -13,8 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Financas',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 80, 29, 168)),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,

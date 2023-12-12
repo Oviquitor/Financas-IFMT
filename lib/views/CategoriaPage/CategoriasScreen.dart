@@ -1,3 +1,4 @@
+import 'package:financass/common/customDrawer.dart';
 import 'package:financass/config/Rotas.dart';
 import 'package:financass/controllers/CategoriasController.dart';
 import 'package:financass/models/CategoriasModel.dart';
@@ -47,6 +48,7 @@ class _CategoriasScreenState extends State<CategoriasScreen> {
         appBar.preferredSize.height -
         MediaQuery.of(context).padding.top;
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: appBar,
       body: Container(
         color: Color.fromARGB(75, 27, 75, 72),

@@ -1,3 +1,4 @@
+import 'package:financass/common/customDrawer.dart';
 import 'package:financass/config/Rotas.dart';
 import 'package:flutter/material.dart';
 import 'package:financass/controllers/CartaoController.dart';
@@ -47,6 +48,7 @@ class _CartaoScreenState extends State<CartaoScreen> {
         appBar.preferredSize.height -
         MediaQuery.of(context).padding.top;
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: appBar,
       body: Container(
         color: Color.fromARGB(75, 27, 75, 72),
